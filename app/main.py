@@ -28,8 +28,8 @@ def format_response_json(countries: list) -> list:
     return countries_formatted
 
 
-def get_json_formatted(json) -> str:
-    return json.dumps(json, default=str, indent=1)
+def get_json_formatted(json_to_format) -> str:
+    return json.dumps(json_to_format, default=str, indent=1)
 
 
 def handler(event, context):
