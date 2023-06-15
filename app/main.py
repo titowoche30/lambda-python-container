@@ -13,14 +13,12 @@ def format_response_json(countries: list) -> list:
         name = country['name']['common']
         capital = country.get('capital', [])
         continents = country['continents']
-        flag = country['flag']
         population = country['population']
 
         new_country_json = {
             'name': name,
             'capital': capital,
             'continents': continents,
-            'flag': flag,
             'population': population,
         }
 
@@ -39,12 +37,8 @@ def handler(event, context):
     print('Lambda context = ')
     print(context)
 
-    try:
-        portuguese_countries: list = get_countries_by_language('portuguese')
-        portuguese_countries_formatted: list = format_response_json(portuguese_countries)
-    except Exception as e:
-        print('Error: ' + str(e))
-        return get_json_formatted({'error': str(e)})
+    portuguese_countries: list = get_countries_by_language('portuguese')
+    portuguese_countries_formatted: list = format_response_json(portuguese_countries)
 
     print('portuguese_countries_formatted = ')
     print(get_json_formatted(portuguese_countries_formatted))
