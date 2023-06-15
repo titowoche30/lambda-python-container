@@ -49,6 +49,7 @@ jobs:
   python-image-build-and-push:
     name: 'publish python image'
     runs-on: ubuntu-latest
+    needs: infra-terraform
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
