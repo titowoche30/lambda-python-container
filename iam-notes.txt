@@ -17,4 +17,3 @@ Meu usuário que usa a AWS CLI precisou dessa policy pra fazer o trigger
         }
     ]
 }
-
