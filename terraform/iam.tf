@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "lambda_assume_role" {
 }
 
 resource "aws_iam_policy" "LambdaBasicExecutionPolicy" {
-  name   = "CloudWatchAccess"
+  name   = "CloudWatchAndVPCAccess"
   policy = jsonencode({
     Version   = "2012-10-17"
     Statement = [
@@ -20,7 +20,12 @@ resource "aws_iam_policy" "LambdaBasicExecutionPolicy" {
         Action = [
           "logs:CreateLogGroup",
           "logs:CreateLogStream",
-          "logs:PutLogEvents"
+          "logs:PutLogEvents",
+          "ec2:CreateNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DeleteNetworkInterface",
+          "ec2:AssignPrivateIpAddresses",
+          "ec2:UnassignPrivateIpAddresses"
         ]
         Effect   = "Allow"
         Resource = "*"

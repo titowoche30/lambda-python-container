@@ -20,7 +20,6 @@ resource "aws_lambda_function" "python_container" {
   }
 
   depends_on = [
-    aws_iam_role.lambda_role,
     aws_ecr_repository.lambda-python
   ]
 }
