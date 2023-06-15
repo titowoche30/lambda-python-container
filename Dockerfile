@@ -1,5 +1,5 @@
 # Define function directory
-ARG FUNCTION_DIR="/function"
+ARG FUNCTION_DIR="/function/"
 
 FROM python:3.10.6-alpine as build-image
 
