@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "lambda_assume_role" {
 }
 
 resource "aws_iam_policy" "LambdaBasicExecutionPolicy" {
-  name   = "CloudWatchAndVPCAccess"
+  name   = "LambdaCloudWatchAndVPCAccess"
   policy = jsonencode({
     Version   = "2012-10-17"
     Statement = [
