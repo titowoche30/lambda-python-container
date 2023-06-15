@@ -7,7 +7,7 @@ resource "aws_lambda_function" "python_container" {
   package_type                   = "Image"
   memory_size                    = "128"
   publish                        = false
-  timeout                        = 60
+  timeout                        = 15
 
   ephemeral_storage {
     size = 512
