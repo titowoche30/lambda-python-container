@@ -7,7 +7,6 @@ resource "aws_lambda_function" "python_container" {
   package_type                   = "Image"
   memory_size                    = "128"
   publish                        = false
-  reserved_concurrent_executions = 1
   timeout                        = 15
 
   vpc_config {
