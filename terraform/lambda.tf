@@ -9,11 +9,6 @@ resource "aws_lambda_function" "python_container" {
   publish                        = false
   timeout                        = 60
 
-  vpc_config {
-    security_group_ids = ["sg-0d544fa0f498342a4"]
-    subnet_ids         = ["subnet-0f729848d7bc48e2c"]
-  }
-
   ephemeral_storage {
     size = 512
   }
