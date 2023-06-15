@@ -1,6 +1,7 @@
 import requests
 import json
 
+
 def get_countries_by_language(language: str) -> list:
     api_url = f'https://restcountries.com/v3.1/lang/{language}'
     return requests.get(api_url).json()
@@ -38,8 +39,12 @@ def handler(event, context):
     print('Lambda context = ')
     print(context)
 
-    portuguese_countries: list = get_countries_by_language('portuguese')
-    portuguese_countries_formatted: list = format_response_json(portuguese_countries)
+    try:
+        portuguese_countries: list = get_countries_by_language('portuguese')
+        portuguese_countries_formatted: list = format_response_json(portuguese_countries)
+    except Exception as e:
+        print('Error: ' + str(e))
+        return get_json_formatted({'error': str(e)})
 
     print('portuguese_countries_formatted = ')
     print(get_json_formatted(portuguese_countries_formatted))

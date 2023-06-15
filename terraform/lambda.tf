@@ -7,7 +7,7 @@ resource "aws_lambda_function" "python_container" {
   package_type                   = "Image"
   memory_size                    = "128"
   publish                        = false
-  timeout                        = 15
+  timeout                        = 60
 
   vpc_config {
     security_group_ids = ["sg-0d544fa0f498342a4"]
